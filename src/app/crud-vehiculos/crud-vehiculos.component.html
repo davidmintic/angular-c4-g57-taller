@@ -1,0 +1,9 @@
+<p>Contador: {{ contador }}</p>
+
+<input type="number" placeholder="edad persona" [(ngModel)]="edad" />
+
+<p [ngClass]="{ 'cls-mayor-edad': edad >= 18, 'cls-menor-edad': edad < 18 }">
+  Es {{ edad >= 18 ? "mayor" : "menor" }} de edad
+</p>
+
+<button [disabled]="edad >= 18" (click)="cambiarTitulo()">cambiar</button>

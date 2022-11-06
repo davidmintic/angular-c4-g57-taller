@@ -1,0 +1,50 @@
+.cls-form {
+    margin-bottom: 20px;
+    position: absolute;
+    z-index: 99;
+    border: solid 1px #edebeb;
+    background: white;
+    border-radius: 10px;
+    padding: 20px 20px 30px;
+    height: 50vh;
+    box-shadow: 0px 4px 10px 0px;
+
+    .cls-title-form {
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #216a91;
+    }
+
+    .cls-row-form {
+        flex-wrap: wrap;
+        display: flex;
+        gap: 20px;
+
+        .cls-field-form {
+            display: grid;
+            position: relative;
+
+            label {
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+    select {
+        min-width: 160px;
+        border: solid 2px #767676;
+        height: 31px;
+        top: 1px;
+        position: relative;
+    }
+
+    .cls-close-form {
+        position: absolute;
+        right: 20px;
+        background: #216a91;
+        color: #fff;
+        padding: 0 8px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}

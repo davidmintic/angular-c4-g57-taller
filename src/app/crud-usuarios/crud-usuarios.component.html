@@ -1,0 +1,107 @@
+<div class="cls-content">
+  <div style="width: 380px; margin-bottom: 10px; display: flex; gap: 10px">
+    <select
+      name=""
+      id=""
+      style="width: 220px"
+      [(ngModel)]="sedeCurrent"
+      (change)="changeSede($event)"
+    >
+      <option *ngFor="let sede of sedes" [value]="sede.idSede">
+        {{ sede.nombre }}
+      </option>
+    </select>
+
+    <nz-input-group
+      nzSearch
+      [nzAddOnAfter]="suffixIconButton"
+      style="min-width: 180px"
+    >
+      <input
+        [(ngModel)]="inputValue"
+        type="text"
+        nz-input
+        placeholder="Ingrese el nombre"
+      />
+    </nz-input-group>
+
+    <ng-template #suffixIconButton>
+      <button nz-button nzType="primary" nzSearch (click)="findByName()">
+        <span nz-icon nzType="search"></span>
+      </button>
+    </ng-template>
+
+    <button
+      title="Agregar usuario"
+      style="padding: 0px 10px; height: 29px"
+      (click)="toggleFormAdd()"
+    >
+      +
+    </button>
+  </div>
+
+  <div class="cls-form" *ngIf="showFormUser" [formGroup]="formGroup">
+    <div class="cls-close-form" (click)="showFormUser = false">
+      <span>x</span>
+    </div>
+
+    <h1 class="cls-title-form">Formulario</h1>
+    <div class="cls-row-form">
+      <div class="cls-field-form">
+        <label for="">Id</label>
+        <input type="text" formControlName="idUsuario" />
+      </div>
+
+      <div class="cls-field-form">
+        <label for="">Nombre</label>
+        <input type="text" formControlName="nombre" />
+      </div>
+      <div class="cls-field-form">
+        <label for="">Teléfono</label>
+        <input type="text" formControlName="telefono" />
+      </div>
+
+      <div class="cls-field-form">
+        <label for="">Tipo usuario</label>
+
+        <select name="" id="" formControlName="tipoUsuario">
+          <option value="jefe-operaciones">Jefe</option>
+          <option value="propietario">Propietario</option>
+          <option value="mecanico">Mecánico</option>
+        </select>
+      </div>
+
+      <div style="display: flex; align-items: flex-end">
+        <button *ngIf="modeForm == 'adicion'" (click)="saveUser()">
+          Guardar
+        </button>
+        <button *ngIf="modeForm == 'edicion'" (click)="editUser()">
+          Editar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <nz-table #basicTable [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Tipo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.nombre }}</td>
+        <td>{{ data.telefono }}</td>
+        <td>{{ data.tipoUsuario }}</td>
+        <td>
+          <a (click)="selectUser(data)">Editar</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a (click)="deleteUser(data.idUsuario)">Eliminar</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

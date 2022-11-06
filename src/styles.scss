@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+@import "assets/scss/normalize.scss";
+
+.cls-content {
+    padding: 30px;
+}
+
+.cls-title-page {
+    padding: 30px 30px 0 30px;
+}
+
+.logo {
+    height: 32px;
+    margin: 16px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+nz-layout {
+    ul {
+        color: #fff;
+    }
+
+    nz-header {
+        background: #fff !important;
+        // padding: 0 !important;
+        // color: #fff;
+    }
+}
+
+nz-sider {
+    background: #006a91 !important;
+
+    .cls-item {
+        cursor: pointer;
+        padding: 10px;
+        transition: all 0.2s;
+        border-radius: 20px 0 0 20px;
+    }
+
+    .cls-item:hover {
+        background-color: white;
+        color: #062140;
+    }
+}
+
+nz-content {
+    margin: 0 16px;
+}
+
+nz-breadcrumb {
+    margin: 16px 0;
+}
+
+.inner-content {
+    padding: 0px;
+    background: #fff;
+    min-height: 360px;
+}
+
+nz-footer {
+    text-align: center;
+}
