@@ -19,6 +19,7 @@
     >
       <input
         [(ngModel)]="inputValue"
+        (keyup)="filtrarUser($event)"
         type="text"
         nz-input
         placeholder="Ingrese el nombre"
@@ -56,9 +57,20 @@
         <label for="">Nombre</label>
         <input type="text" formControlName="nombre" />
       </div>
+
       <div class="cls-field-form">
         <label for="">Teléfono</label>
         <input type="text" formControlName="telefono" />
+      </div>
+
+      <div class="cls-field-form">
+        <label for="">Fecha nacimiento</label>
+        <input type="date" formControlName="fechaNacimiento" />
+      </div>
+
+      <div class="cls-field-form">
+        <label for="">Dirección</label>
+        <input type="text" formControlName="direccion" />
       </div>
 
       <div class="cls-field-form">
@@ -100,8 +112,27 @@
           <a (click)="selectUser(data)">Editar</a>
           <nz-divider nzType="vertical"></nz-divider>
           <a (click)="deleteUser(data.idUsuario)">Eliminar</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a (click)="viewDetail(data)">Ver detalle</a>
         </td>
       </tr>
     </tbody>
   </nz-table>
 </div>
+
+<nz-modal
+  nzOkText="Ok"
+  [nzCancelText]="null"
+  [(nzVisible)]="isVisible"
+  nzTitle="Detalle del usuario"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+>
+  <ng-container *nzModalContent>
+    <div style="display: flex; flex-direction: column">
+      <span> <b>Teléfono:</b> {{ userCurrent.telefono }} </span>
+      <span> <b>Fecha nacimiento:</b> {{ userCurrent.fechaNacimiento }} </span>
+      <span> <b>Dirección:</b> {{ userCurrent.direccion }} </span>
+    </div>
+  </ng-container>
+</nz-modal>
