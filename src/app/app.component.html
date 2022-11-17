@@ -1,20 +1,32 @@
 <nz-layout>
-  <nz-sider nzCollapsible nzWidth="200px">
+  <nz-sider
+    *ngIf="servicioLogin.modeApp == 'app'"
+    nzCollapsible
+    nzWidth="200px"
+  >
     <div class="logo"></div>
     <ul nz-menu nzTheme="dark" nzMode="inline">
-      <li nz-menu-item class="cls-item" routerLink="/usuarios">
+      <li nz-menu-item class="cls-item" routerLink="/admin/usuarios">
         <span nz-icon nzType="pie-chart"></span>
         <span>Admin usuarios</span>
       </li>
 
-      <li nz-menu-item class="cls-item" routerLink="/vehiculos">
+      <li nz-menu-item class="cls-item" routerLink="/admin/vehiculos">
         <span nz-icon nzType="file"></span>
         <span>Admin vehiculos</span>
       </li>
     </ul>
   </nz-sider>
   <nz-layout>
-    <nz-header> Taller grupo 57 </nz-header>
+    <nz-header
+      *ngIf="servicioLogin.modeApp == 'app'"
+      style="display: flex; align-items: center; justify-content: flex-end"
+    >
+      <button nz-button nzType="primary" (click)="logout()">
+        Cerrar sesión
+      </button>
+    </nz-header>
+
     <nz-content>
       <nz-breadcrumb>
         <nz-breadcrumb-item>User</nz-breadcrumb-item>
@@ -24,6 +36,9 @@
         <router-outlet></router-outlet>
       </div>
     </nz-content>
-    <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+
+    <nz-footer *ngIf="servicioLogin.modeApp == 'app'"
+      >Ant Design ©2020 Implement By Angular</nz-footer
+    >
   </nz-layout>
 </nz-layout>
