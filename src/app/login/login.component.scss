@@ -1,0 +1,34 @@
+.cls-form-login {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background: #231e20;
+    position: fixed;
+    left: 0;
+
+    .cls-content-fields {
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: translateY(-40px);
+
+        h3 {
+            color: #fff;
+        }
+
+        button {
+            background: linear-gradient(44deg, #45d8ac, #3babee);
+            border-color: #45d8ac;
+            border: none;
+            color: #000;
+            border-radius: 4px;
+            padding: 2px 15px;
+            cursor: pointer;
+        }
+    }
+}

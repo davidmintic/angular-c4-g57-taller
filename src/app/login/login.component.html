@@ -1,0 +1,47 @@
+<form
+  class="cls-form-login"
+  nz-form
+  [nzLayout]="'inline'"
+  [formGroup]="validateForm"
+>
+  <nz-form-item>
+    <img style="height: 200px" src="/assets/images/logo-login.jpg" alt="" />
+  </nz-form-item>
+
+  <div class="cls-content-fields">
+    <nz-form-item>
+      <h3>Login</h3>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="ingrese usuario!">
+        <nz-input-group nzPrefixIcon="user">
+          <input formControlName="correo" nz-input placeholder="Correo" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="ingrese contraseña!">
+        <nz-input-group nzPrefixIcon="lock">
+          <input
+            formControlName="contrasenia"
+            nz-input
+            type="password"
+            placeholder="contrasenia"
+          />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control>
+        <button
+          (click)="login()"
+          nz-button
+          nzType="primary"
+          [disabled]="!validateForm.valid"
+        >
+          Iniciar
+        </button>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+</form>

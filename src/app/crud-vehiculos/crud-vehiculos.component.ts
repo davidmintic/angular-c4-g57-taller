@@ -1,5 +1,5 @@
 import { AfterContentInit, Component, OnDestroy, OnInit } from '@angular/core';
-import { ServiceRequestService } from '../../../service-request.service';
+import { ServiceRequestService } from '../service-request.service';
 
 @Component({
   selector: 'app-crud-vehiculos',
